@@ -1,8 +1,8 @@
 Package: epanet2toolkit
 Type: Package
 Title: Call 'EPANET' Functions to Simulate Pipe Networks
-Version: 0.1.3
-Date: 2017-10-20
+Version: 0.2.1
+Date: 2018-01-31
 Authors@R: c(
    person("Ernesto", "Arandia", email="earandia.ie@gmail.com", role='aut'),
    person("Bradley", "Eck", email="brad@bradeck.net", role = c('aut','cre')),
@@ -26,7 +26,7 @@ Authors@R: c(
    person("IBM Corp.", role = 'cph'),
    person("Open Water Analytics", role = 'cph')
   )
-Suggests: testthat
+Suggests: testthat, epanetReader
 Description: Enables simulation of water piping networks using 'EPANET'.
     The package provides functions from the 'EPANET' programmer's toolkit as R
     functions so that basic or customized simulations can be carried out from R.
@@ -37,7 +37,7 @@ Copyright: COPYRIGHTS
 URL: https://github.com/bradleyjeck/epanet2toolkit
 RoxygenNote: 6.0.1
 NeedsCompilation: yes
-Packaged: 2017-10-20 10:35:14 UTC; brad
+Packaged: 2018-01-31 21:32:34 UTC; brad
 Author: Ernesto Arandia [aut],
   Bradley Eck [aut, cre],
   Lew Rossman [aut],
@@ -61,4 +61,4 @@ Author: Ernesto Arandia [aut],
   Open Water Analytics [cph]
 Maintainer: Bradley Eck <brad@bradeck.net>
 Repository: CRAN
-Date/Publication: 2017-10-20 10:51:10 UTC
+Date/Publication: 2018-01-31 22:35:24 UTC
