@@ -1,6 +1,6 @@
 #*****************************************
 #
-# (C) Copyright IBM Corp. 2017
+# (C) Copyright IBM Corp. 2017, 2020
 # Author: Bradley J Eck and Ernesto Arandia
 #
 #*****************************************/
@@ -13,6 +13,7 @@
 #' 
 #' Solves the network hydraulics for all time periods
 #' 
+#' @return Returns NULL invisibly; called for side effect
 #' @export
 #' @useDynLib epanet2toolkit RENsolveH
 #' @examples
@@ -23,6 +24,9 @@
 #' ENsolveQ()
 #' ENgetnodevalue(2, "EN_PRESSURE")
 #' ENclose() 
+#' # clean-up the created files
+#' file.remove("Net1.rpt") 
+#' file.remove("Net1.bin") 
  ENsolveH <- function(){
     arg <- .C("RENsolveH", as.integer(-1) )
     err <- arg[[1]]
@@ -31,20 +35,21 @@
  }
  
  
-#'ENsaveH
+#' ENsaveH
 #'  
-#'Saves hydraulic results to binary file
+#' Saves hydraulic results to binary file
 #'
+#' @return Returns NULL invisibly; called for side effect
 #' @export
 #' @useDynLib epanet2toolkit RENsaveH
-#'@details   Must be called before ENreport() if no WQ simulation has been made.
-#'Should not be called if ENsolveQ() will be used.
- ENsaveH <- function(){
+#' @details   Must be called before ENreport() if no WQ simulation has been made.
+#' Should not be called if ENsolveQ() will be used.
+ENsaveH <- function(){
     arg <- .C("RENsaveH", as.integer(-1))
     err <- arg[[1]]
     check_epanet_error( err )
 	return( invisible() )
- }
+}
  
 
 #' Open hydraulics analysis system.
@@ -61,7 +66,7 @@
 #'   Do not call this function if \code{ENsolveH} is being used to run a complete hydraulic analysis.
 #' 
 #' @seealso \code{ENinitH}, \code{ENrunH}, \code{ENnextH}, \code{ENcloseH}
-#' 
+#' @return Returns NULL invisibly; called for side effect
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  
@@ -71,15 +76,17 @@
 #' ENrunH()
 #' ENcloseH()
 #' ENclose()
+#' # clean-up the created files
+#' file.remove("Net1.rpt") 
 ENopenH <- function() {
 	
-  if( getOpenHflag()){
-    warning("Epanet hydraulic solver was already open")
-  } 
-  else { 
+#  if( getOpenHflag()){
+#    warning("Epanet hydraulic solver was already open")
+#  } 
+#  else { 
     result <- .Call("enOpenH")					
     check_epanet_error(result$errorcode)
-  }
+#  }
   
   return( invisible() )
   
@@ -114,7 +121,7 @@ ENopenH <- function() {
 #'    hydraulics file. 
 #' 
 #' @seealso \code{ENopenH}, \code{ENrunH}, \code{ENnextH}, \code{ENcloseH}
-#' 
+#' @return Returns NULL invisibly; called for side effect
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  
@@ -124,6 +131,8 @@ ENopenH <- function() {
 #' ENrunH()
 #' ENcloseH()
 #' ENclose()
+#' # clean-up the created files
+#' file.remove("Net1.rpt") 
 ENinitH <- function(flag) {
 	
 	# check the arguments
@@ -163,7 +172,7 @@ ENinitH <- function(flag) {
 #'   See \code{ENnextH} for an example of using this function.
 #'   
 #' @seealso \code{ENopenH}, \code{ENinitH}, \code{ENnextH}, \code{ENcloseH}
-#'    
+#' @return Returns NULL invisibly; called for side effect
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  
@@ -173,6 +182,8 @@ ENinitH <- function(flag) {
 #' ENrunH()
 #' ENcloseH()
 #' ENclose()
+#' # clean-up the created files
+#' file.remove("Net1.rpt") 
 ENrunH <- function() {
 	
   result <- .Call("enRunH")					
@@ -223,6 +234,8 @@ ENrunH <- function() {
 #'   }
 #'   ENcloseH()
 #'   ENclose()
+#' # clean-up the created files
+#' file.remove("Net1.rpt") 
 #'   
 #' @seealso \code{ENopenH}, \code{ENinitH}, \code{ENrunH}, \code{ENcloseH}, \code{ENsettimeparam}
 #' 
@@ -239,6 +252,8 @@ ENnextH <- function() {
 #' 
 #' \code{ENcloseH} closes the hydraulic analysis system, freeing all 
 #'   allocated memory
+#'
+#' @return Returns NULL invisibly; called for side effect
 #' 
 #' @export
 #' @useDynLib epanet2toolkit enCloseH
@@ -250,12 +265,12 @@ ENnextH <- function() {
 #' 
 ENcloseH <- function() {
   
-    if( !getOpenHflag()){
-      warning("Epanet hydraulics already closed")
-    } 
-    else { 
+#    if( !getOpenHflag()){
+#      warning("Epanet hydraulics already closed")
+#    } 
+#    else { 
       result <- .Call("enCloseH")					
       check_epanet_error(result$errorcode)
-    }
+#    }
     return( invisible() )
 } 

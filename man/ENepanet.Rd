@@ -13,6 +13,9 @@ ENepanet(inpFile, rptFile, binOutFile = "")
 
 \item{binOutFile}{name of optional binary output file}
 }
+\value{
+Returns NULL invisibly; called for side effect
+}
 \description{
 runs a complete EPANET simulation
 }
@@ -25,4 +28,6 @@ ENepanet( inp, "Net1.rpt")
 # into R with the read.rpt() function in package epanetReader
 myRpt <- epanetReader::read.rpt("Net1.rpt")
 summary(myRpt)
+# clean-up the created file 
+file.remove("Net1.rpt")
 }

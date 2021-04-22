@@ -8,6 +8,7 @@
 #' Write simulation report to the report file
 #'
 #' @export
+#' @return Returns NULL invisibly; called for side effect
 #' @useDynLib epanet2toolkit RENreport
 #' @examples
 #' # path to Net1.inp example file included with this package
@@ -17,6 +18,9 @@
 #' ENsolveQ()
 #' ENreport()
 #' ENclose()
+#' # clean up the created files 
+#' file.remove("Net1.rpt") 
+#' file.remove("Net1.bin") 
 ENreport <- function(){
 
     x <- .C("RENreport", as.integer(-1))

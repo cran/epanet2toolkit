@@ -6,6 +6,9 @@
 \usage{
 ENreport()
 }
+\value{
+Returns NULL invisibly; called for side effect
+}
 \description{
 Write simulation report to the report file
 }
@@ -17,4 +20,7 @@ ENsolveH()
 ENsolveQ()
 ENreport()
 ENclose()
+# clean up the created files 
+file.remove("Net1.rpt") 
+file.remove("Net1.bin") 
 }

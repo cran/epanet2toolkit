@@ -7,11 +7,15 @@
 epanet2toolkit is an R package for simulating water networks using Epanet. The
 package provides functions from the Epanet programmer's toolkit as R functions so
 that basic or customized simulations can be carried out from R.  The package
-uses [Epanet version 2.1 from Open Water Analytics](https://github.com/OpenWaterAnalytics/EPANET/releases/tag/v2.1).  
+uses [Epanet version 2.2 from Open Water Analytics](https://github.com/OpenWaterAnalytics/EPANET/releases/tag/v2.2).  
+
+Although EPANET version 2.2 has substantial functionality beyond 2.1 this version of the R package 
+provides the v2.1 functionality using the v2.2 code base.  Only the "legacy" style functions of EPANET
+are supported.  
 
 
 In addition to this readme page and the package manual, the paper [An R package for EPANET simulations](https://doi.org/10.1016/j.envsoft.2018.05.016) 
-is published in _Environmental Modelling & Software_ and is also available as a [preprint](http://bradeck.net/docs/ArandiaEck2018epanet2toolkit.pdf).
+is published in _Environmental Modelling & Software_ and is also available as a [preprint](http://bradeck.net/docs/ArandiaEck2018epanet2toolkit.pdf).  The conference paper [Water demand and network modelling with R](http://bradeck.net/docs/iEMSs18.pdf) gives some more in depth examples.
 
 ## Installation
 Install the latest release from CRAN

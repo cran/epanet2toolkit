@@ -10,6 +10,9 @@ ENinitH(flag)
 \item{flag}{A two-digit flag indicating if hydraulic results will be saved to the
 hydraulics file (rightmost digit) and if link flows should be re-initialized.}
 }
+\value{
+Returns NULL invisibly; called for side effect
+}
 \description{
 \code{ENinitH} Initializes storage tank levels, link status and settings, and the simulation clock 
   time prior to running a hydraulic analysis.
@@ -40,6 +43,8 @@ ENinitH(0)
 ENrunH()
 ENcloseH()
 ENclose()
+# clean-up the created files
+file.remove("Net1.rpt") 
 }
 \seealso{
 \code{ENopenH}, \code{ENrunH}, \code{ENnextH}, \code{ENcloseH}

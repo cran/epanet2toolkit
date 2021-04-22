@@ -1,6 +1,6 @@
 #*****************************************
 #
-# (C) Copyright IBM Corp. 2017
+# (C) Copyright IBM Corp. 2017, 2020
 # Author: Bradley J Eck and Ernesto Arandia
 #
 #*****************************************/
@@ -9,17 +9,24 @@
 context("ENepanet")
 test_that("ENepanet all args",{
   expect_silent( ENepanet("Net1.inp", "Net1.rpt", "Net1.bin") ) 
+  # clean-up 
+  file.remove("Net1.rpt") 
+  file.remove("Net1.bin") 
 })
 
 test_that("RENepanet null bin",{
 
   expect_silent( ENepanet("Net1.inp", "Net1.rpt") ) 
+  # clean-up 
+  file.remove("Net1.rpt") 
 })
 
 test_that("retuns null invisibly",{
 	 wv <- withVisible( ENepanet("Net1.inp", "Net1.rpt") ) 
 	 expect_null(wv$value)
 	 expect_false(wv$visible)
+  # clean-up 
+  file.remove("Net1.rpt") 
  }) 
 
 test_that("R func ENepanet bad input",{
@@ -54,7 +61,7 @@ test_that("func works",{
 context("get count")
 
 test_that("no crash calling on closed toolkit",{
-  expect_false( getOpenflag() )
+ # expect_false( getOpenflag() )
   expect_error( x <- ENgetcount(0) ) 
 })
 test_that("works with character input",{
@@ -103,7 +110,7 @@ context("get version")
 test_that("works",{
 			
 			v <- ENgetversion()
-			expect_equal(v, as.integer(20100))
+			expect_equal(v, as.integer(20200))
 			
 		})
 

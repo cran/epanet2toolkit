@@ -1,6 +1,6 @@
 #*****************************************
 #
-# (C) Copyright IBM Corp. 2017
+# (C) Copyright IBM Corp. 2017, 2020
 # Author: Ernesto Arandia & Bradley J Eck
 #
 #*****************************************
@@ -28,7 +28,6 @@
 #' 
 #' @seealso 
 #' \code{ENclose}  
-#' \url{http://wateranalytics.org/EPANET/group___file_management.html} 
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  
@@ -50,8 +49,11 @@ ENopen <- function(inpFileName, rptFileName, outFileName) {
 		stop("The input arguments must be character strings.")
 	}	
 	
-	if( getOpenflag()){
-		warning("Epanet toolkit was already open")
+        # rely on flow units to see if epanet is already open
+        epanet_is_closed <- suppressWarnings( is.null(ENgetflowunits() ) ) 
+
+	if( !epanet_is_closed ){
+		stop("Epanet toolkit is already open.")
 	} else { 
 		errcode <- .Call("enOpen", c(inpFileName, rptFileName, outFileName))					
 		check_epanet_error(errcode)
@@ -65,6 +67,8 @@ ENopen <- function(inpFileName, rptFileName, outFileName) {
 #' 
 #' \code{ENclose} closes the EPANET Toolkit system (including all files being processed).
 #' 
+#' @return Returns NULL invisibly; called for the side effect of closing EPANET.
+#'
 #' @export
 #' @useDynLib epanet2toolkit enClose
 #' 
@@ -72,7 +76,6 @@ ENopen <- function(inpFileName, rptFileName, outFileName) {
 #'   condition was encountered.
 #' 
 #' @seealso \code{\link{ENopen}}
-#' \url{http://wateranalytics.org/EPANET/group___file_management.html} 
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  
@@ -80,7 +83,10 @@ ENopen <- function(inpFileName, rptFileName, outFileName) {
 #' ENclose()
 ENclose <- function() {
 
-	if( !getOpenflag()){
+        # rely on flow units to see if epanet is already open
+        epanet_is_closed <- suppressWarnings( is.null(ENgetflowunits() ) ) 
+
+	if( epanet_is_closed ){
 		warning("Epanet toolkit already closed")
 	} else { 
 		errcode <- .Call("enClose")					
@@ -103,8 +109,6 @@ ENclose <- function() {
 #'   (see below).
 #' 
 #' @return The number of network components.
-#' @seealso
-#' \url{http://wateranalytics.org/EPANET/group___network_info.html}
 #' @details Component codes consist of the following:
 #'   \tabular{lll}{
 #'   \code{EN_NODECOUNT}    \tab 0 \tab Nodes\cr
@@ -182,8 +186,6 @@ ENgetcount <- function(compcode) {
 #'   Flow units in liters or cubic meters implies that metric units are used for all other quantities in 
 #'   addition to flow. Otherwise US units are employed. (See Units of Measurement).
 #' 
-#' @seealso
-#' \url{http://wateranalytics.org/EPANET/group___toolkit_options.html}
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  
@@ -192,13 +194,24 @@ ENgetcount <- function(compcode) {
 #' ENclose()
 ENgetflowunits <- function() {
 	
-	codetable <- c("EN_CFS", "EN_GPM", "EN_MGD", "EN_IMGD",	"EN_AFD", "EN_LPS", "EN_LPM",
-			"EN_MLD", "EN_CMH", "EN_CMD") 
-	#flowunits <- enEvalGetFunction("enGetFlowUnits")
 	flowunits <- .Call("enGetFlowUnits")
-	names(flowunits) = codetable[flowunits + 1]
+        
+        if( is.null(flowunits) ){
+ 
+            warning("EPANET did not return any flow units. This probably means a network analysis has not been started with ENinit or ENopen.") 
+
+        } else {  
+	   codetable <- c("EN_CFS", "EN_GPM", "EN_MGD", 
+                          "EN_IMGD","EN_AFD", "EN_LPS", 
+                          "EN_LPM", "EN_MLD", "EN_CMH", 
+                          "EN_CMD") 
+           
+           # return the name of the flow unit 
+	   names(flowunits) = codetable[flowunits + 1]
+
+        } 
+
 	return(flowunits)
-	
 } 
 
 
@@ -223,7 +236,6 @@ ENgetflowunits <- function() {
 #'   The tracenode value will be 0 when the quality code is not \code{EN_TRACE}.
 #' 
 #' @seealso \code{ENsetqualtype}
-#' \url{http://wateranalytics.org/EPANET/group___toolkit_options.html}
 #' @examples
 #' # path to Net1.inp example file included with this package
 #' inp <- file.path( find.package("epanet2toolkit"), "extdata","Net1.inp")  

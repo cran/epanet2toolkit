@@ -6,6 +6,9 @@
 \usage{
 ENopenH()
 }
+\value{
+Returns NULL invisibly; called for side effect
+}
 \description{
 \code{ENopenH} opens the EPANET hydraulics analysis system.
 }
@@ -25,6 +28,8 @@ ENinitH(0)
 ENrunH()
 ENcloseH()
 ENclose()
+# clean-up the created files
+file.remove("Net1.rpt") 
 }
 \seealso{
 \code{ENinitH}, \code{ENrunH}, \code{ENnextH}, \code{ENcloseH}

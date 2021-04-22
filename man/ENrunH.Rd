@@ -6,6 +6,9 @@
 \usage{
 ENrunH()
 }
+\value{
+Returns NULL invisibly; called for side effect
+}
 \description{
 \code{ENrunH} Runs a single period hydraulic analysis, retrieving the 
 current simulation clock time \code{t}.
@@ -30,6 +33,8 @@ ENinitH(0)
 ENrunH()
 ENcloseH()
 ENclose()
+# clean-up the created files
+file.remove("Net1.rpt") 
 }
 \seealso{
 \code{ENopenH}, \code{ENinitH}, \code{ENnextH}, \code{ENcloseH}

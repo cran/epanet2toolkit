@@ -6,6 +6,9 @@
 \usage{
 ENsolveH()
 }
+\value{
+Returns NULL invisibly; called for side effect
+}
 \description{
 Solves the network hydraulics for all time periods
 }
@@ -17,4 +20,7 @@ ENsolveH()
 ENsolveQ()
 ENgetnodevalue(2, "EN_PRESSURE")
 ENclose() 
+# clean-up the created files
+file.remove("Net1.rpt") 
+file.remove("Net1.bin") 
 }

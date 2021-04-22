@@ -15,8 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 //#include "types.h"
-#define EXTERN
-//#include "vars.h"
+#define EXTERN extern 
 #include "epanet2.h"
 
 //void RgetOpenHflag(int* flagval );
