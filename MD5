@@ -1,4 +1,4 @@
-c20465d11d43c37e632aa01faf0cee69 *DESCRIPTION
+a3670fa4bc1e72cc3f92d2be008c6370 *DESCRIPTION
 1265bd20836540faf530f34e5fca8666 *LICENSE
 7b836d91ba363e8191e2f9fbe761f389 *NAMESPACE
 f69d7c1040b8205ea5c38483c392e047 *R/Rtoolkit.R
@@ -76,7 +76,7 @@ ed096acf19d94e3f2091f334a85bf1c1 *src/Repanet2.h
 032ac7a66cfd976a6989af0a9200332f *src/cstr_helper.c
 f70a9e18c435b9153cdb803a2adb110c *src/cstr_helper.h
 fa585124abce89954770176e050c4061 *src/enumstxt.h
-6a89822a3f3d7f7e55cede3cc6d7c3b7 *src/epanet.c
+9418e777a74af6d4c55d2b9bc28f2f0b *src/epanet.c
 ae5aec67185c90507046a3840d739427 *src/epanet2.c
 45c9fb560df5206c962781845758bb8d *src/epanet2.h
 e3cb9718d68fb27118ad4edb5cab788d *src/epanet2_2.h
@@ -85,16 +85,16 @@ bf5147a1b457a4cb9dbaef260deb6172 *src/errormanager.c
 24ea711388621577e0f71457e2f72d62 *src/errormanager.h
 b1376258b6bf9cb79ba6f13fcc9560bf *src/filemanager.c
 e5b8c2552378e6b1ab983eff7cf612ba *src/filemanager.h
-03c44fe060dd5114a2ff65995c1ecb30 *src/funcs.h
+c26554990a01efabd8f3d0461837bce6 *src/funcs.h
 2d338f01f135b156f17141502c36436d *src/genmmd.c
 ddc1745cc691b0a156a20cbffb1c6aa4 *src/hash.c
 4fb95695ce1a433878ba8f0c050a668f *src/hash.h
 dcb4e72278bf0bc367b0ecb7c3a6e2e4 *src/hydcoeffs.c
 0676d9240c939d56a50397e04914a135 *src/hydraul.c
-b88ba5020579fc8744839643f530ac54 *src/hydsolver.c
+9e8dc27c85a1fbda89d11cc57de6a93b *src/hydsolver.c
 7f2fccd8db0f1daa39cf90a76781d735 *src/hydstatus.c
 942aa64afa9a6911da3c05f310b57ef8 *src/init.c
-9a26841e4e902b4ed5a6541631766c19 *src/inpfile.c
+0379249e99c18ac209026b045d2bf3ed *src/inpfile.c
 439e77b66d3071df785fb7bab9f5f6b4 *src/input1.c
 13ebff815ba72d51281bd1ba778558dc *src/input2.c
 4c33f1b2ea74c8a9de715fb3e4cc6c37 *src/input3.c
@@ -105,8 +105,8 @@ a183f2488f73afa0c7fee4952e8789cb *src/project.c
 1d6f7531d6b23213f334aeead6e468b8 *src/quality.c
 9b0c12edd99df178cf954c43df776799 *src/qualreact.c
 54bfcde8258578b5a3e118ea06ee3d2e *src/qualroute.c
-fd3b2c883dc329a42d62936dfc87ae35 *src/report.c
-291e5f16430389abf7907d0a758570ef *src/rules.c
+f8a7b8a2256e44e949bc908c84f22d72 *src/report.c
+2a0261f64711ada1324ff9dd167ff0d5 *src/rules.c
 41ae006f66a04395712b1a8d45b05da0 *src/smatrix.c
 06543090570318d46d63dcdb740621dd *src/text.h
 2a702369e1183e31df6c0fd5f4a7961a *src/toolkit.c

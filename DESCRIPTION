@@ -1,8 +1,8 @@
 Package: epanet2toolkit
 Type: Package
 Title: Call 'EPANET' Functions to Simulate Pipe Networks
-Version: 0.6.2
-Date: 2023-02-02
+Version: 0.7.0
+Date: 2023-02-08
 Authors@R: c(
    person("Ernesto", "Arandia", email="earandia.ie@gmail.com", role='aut'),
    person("Bradley", "Eck", email="brad@bradeck.net", role = c('aut','cre')),
@@ -41,7 +41,7 @@ Copyright: COPYRIGHTS
 URL: https://github.com/bradleyjeck/epanet2toolkit
 RoxygenNote: 7.1.1
 NeedsCompilation: yes
-Packaged: 2023-02-01 22:08:13 UTC; brad
+Packaged: 2023-02-08 21:39:53 UTC; brad
 Author: Ernesto Arandia [aut],
   Bradley Eck [aut, cre],
   Lew Rossman [aut],
@@ -67,4 +67,4 @@ Author: Ernesto Arandia [aut],
   IBM Corp. [cph],
   Open Water Analytics [cph]
 Repository: CRAN
-Date/Publication: 2023-02-01 22:20:02 UTC
+Date/Publication: 2023-02-09 09:50:07 UTC
