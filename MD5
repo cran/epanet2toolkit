@@ -1,4 +1,4 @@
-d7de12680d51ff01677b7f30e7b6e9d0 *DESCRIPTION
+e3f004f9ca4af32acd4ba35aacff60b5 *DESCRIPTION
 1265bd20836540faf530f34e5fca8666 *LICENSE
 6401e926e1e39357ca048f4ec7bf2de0 *NAMESPACE
 45c90507ad97771413280c539a5983da *R/Rtoolkit.R
@@ -173,7 +173,7 @@ dcb4e72278bf0bc367b0ecb7c3a6e2e4 *src/hydcoeffs.c
 0a07b15be17a255a408a4edd08cd901c *src/init.c
 0379249e99c18ac209026b045d2bf3ed *src/inpfile.c
 439e77b66d3071df785fb7bab9f5f6b4 *src/input1.c
-13ebff815ba72d51281bd1ba778558dc *src/input2.c
+b465b8b0c763bb85e0f9cea2838c04c9 *src/input2.c
 4c33f1b2ea74c8a9de715fb3e4cc6c37 *src/input3.c
 327b1924e25bb884ef7c7133c0beab04 *src/mempool.c
 b092b6df1a3944403ca6e1140023bc08 *src/mempool.h
